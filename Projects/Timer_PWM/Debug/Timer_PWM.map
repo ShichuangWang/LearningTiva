@@ -1,0 +1,178 @@
+******************************************************************************
+                  TI ARM Linker PC v20.2.6                     
+******************************************************************************
+>> Linked Thu Jan  5 17:16:40 2023
+
+OUTPUT FILE NAME:   <Timer_PWM.out>
+ENTRY POINT SYMBOL: "_c_int00_noinit_noargs"  address: 00000649
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  FLASH                 00000000   00040000  0000076c  0003f894  R  X
+  SRAM                  20000000   00008000  00000200  00007e00  RW X
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+00000000    00000000    0000076c   0000076c    r-x
+  00000000    00000000    0000026c   0000026c    r-- .intvecs
+  0000026c    0000026c    00000470   00000470    r-x .text
+  000006dc    000006dc    00000090   00000090    r-- .const
+20000000    20000000    00000200   00000000    rw-
+  20000000    20000000    00000200   00000000    rw- .stack
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.intvecs   0    00000000    0000026c     
+                  00000000    0000026c     tm4c123gh6pm_startup_ccs.obj (.intvecs)
+
+.text      0    0000026c    00000470     
+                  0000026c    0000016c     driverlib.lib : gpio.obj (.text:GPIOPadConfigSet)
+                  000003d8    000000f4                   : sysctl.obj (.text:SysCtlClockSet)
+                  000004cc    00000070     main.obj (.text)
+                  0000053c    00000060     driverlib.lib : timer.obj (.text:TimerConfigure)
+                  0000059c    0000004c                   : gpio.obj (.text:GPIOPinConfigure)
+                  000005e8    00000034                   : sysctl.obj (.text:SysCtlPeripheralEnable)
+                  0000061c    0000002c                   : gpio.obj (.text:GPIODirModeSet)
+                  00000648    0000002c     rtsv7M4_T_le_v4SPD16_eabi.lib : boot_cortex_m.c.obj (.text:_c_int00_noinit_noargs:_c_int00_noinit_noargs)
+                  00000674    00000016     driverlib.lib : gpio.obj (.text:GPIOPinTypeTimer)
+                  0000068a    00000012                   : timer.obj (.text:TimerLoadSet)
+                  0000069c    00000012                   : timer.obj (.text:TimerMatchSet)
+                  000006ae    0000000e                   : timer.obj (.text:TimerEnable)
+                  000006bc    0000000c     tm4c123gh6pm_startup_ccs.obj (.text)
+                  000006c8    00000006     driverlib.lib : sysctl.obj (.text:SysCtlDelay)
+                  000006ce    00000006                   : timer.obj (.text:TimerClockSourceSet)
+                  000006d4    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : pre_init.c.obj (.text:_system_pre_init)
+                  000006d8    00000004                                   : exit.c.obj (.text:abort:abort)
+
+.const     0    000006dc    00000090     
+                  000006dc    00000090     driverlib.lib : gpio.obj (.const:g_pui32GPIOBaseAddrs)
+
+.cinit     0    00000000    00000000     UNINITIALIZED
+
+.init_array 
+*          0    00000000    00000000     UNINITIALIZED
+
+.stack     0    20000000    00000200     UNINITIALIZED
+                  20000000    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : boot_cortex_m.c.obj (.stack)
+                  20000004    000001fc     --HOLE--
+
+__llvm_prf_cnts 
+*          0    20000000    00000000     UNINITIALIZED
+
+MODULE SUMMARY
+
+       Module                         code   ro data   rw data
+       ------                         ----   -------   -------
+    .\
+       tm4c123gh6pm_startup_ccs.obj   12     620       0      
+       main.obj                       112    0         0      
+    +--+------------------------------+------+---------+---------+
+       Total:                         124    620       0      
+                                                              
+    D:/TivaPackage/driverlib/ccs/Debug/driverlib.lib
+       gpio.obj                       506    144       0      
+       sysctl.obj                     302    0         0      
+       timer.obj                      152    0         0      
+    +--+------------------------------+------+---------+---------+
+       Total:                         960    144       0      
+                                                              
+    D:\MyPC_software\CCS\ccs\tools\compiler\ti-cgt-arm_20.2.6.LTS\lib\rtsv7M4_T_le_v4SPD16_eabi.lib
+       boot_cortex_m.c.obj            44     0         0      
+       exit.c.obj                     4      0         0      
+       pre_init.c.obj                 4      0         0      
+    +--+------------------------------+------+---------+---------+
+       Total:                         52     0         0      
+                                                              
+       Stack:                         0      0         512    
+    +--+------------------------------+------+---------+---------+
+       Grand Total:                   1136   764       512    
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address   name                   
+-------   ----                   
+000006d9  C$$EXIT                
+0000061d  GPIODirModeSet         
+0000026d  GPIOPadConfigSet       
+0000059d  GPIOPinConfigure       
+00000675  GPIOPinTypeTimer       
+000006bd  ResetISR               
+000003d9  SysCtlClockSet         
+000006c9  SysCtlDelay            
+000005e9  SysCtlPeripheralEnable 
+000006cf  TimerClockSourceSet    
+0000053d  TimerConfigure         
+000006af  TimerEnable            
+0000068b  TimerLoadSet           
+0000069d  TimerMatchSet          
+20000200  __STACK_END            
+00000200  __STACK_SIZE           
+20000200  __STACK_TOP            
+ffffffff  __TI_pprof_out_hndl    
+ffffffff  __TI_prof_data_size    
+ffffffff  __TI_prof_data_start   
+00000000  __TI_static_base__     
+ffffffff  __binit__              
+ffffffff  __c_args__             
+UNDEFED   __mpu_init             
+20000000  __stack                
+20000000  __start___llvm_prf_cnts
+20000000  __stop___llvm_prf_cnts 
+00000649  _c_int00_noinit_noargs 
+000006d5  _system_pre_init       
+000006d9  abort                  
+ffffffff  binit                  
+00000000  g_pfnVectors           
+000004cd  main                   
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address   name                   
+-------   ----                   
+00000000  __TI_static_base__     
+00000000  g_pfnVectors           
+00000200  __STACK_SIZE           
+0000026d  GPIOPadConfigSet       
+000003d9  SysCtlClockSet         
+000004cd  main                   
+0000053d  TimerConfigure         
+0000059d  GPIOPinConfigure       
+000005e9  SysCtlPeripheralEnable 
+0000061d  GPIODirModeSet         
+00000649  _c_int00_noinit_noargs 
+00000675  GPIOPinTypeTimer       
+0000068b  TimerLoadSet           
+0000069d  TimerMatchSet          
+000006af  TimerEnable            
+000006bd  ResetISR               
+000006c9  SysCtlDelay            
+000006cf  TimerClockSourceSet    
+000006d5  _system_pre_init       
+000006d9  C$$EXIT                
+000006d9  abort                  
+20000000  __stack                
+20000000  __start___llvm_prf_cnts
+20000000  __stop___llvm_prf_cnts 
+20000200  __STACK_END            
+20000200  __STACK_TOP            
+ffffffff  __TI_pprof_out_hndl    
+ffffffff  __TI_prof_data_size    
+ffffffff  __TI_prof_data_start   
+ffffffff  __binit__              
+ffffffff  __c_args__             
+ffffffff  binit                  
+UNDEFED   __mpu_init             
+
+[33 symbols]
